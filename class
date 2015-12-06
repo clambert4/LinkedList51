@@ -1,0 +1,43 @@
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.List;
+import java.util.LinkedList;
+
+public class LinkedList51 {
+
+    public static void main(String[] args) {
+        System.out.println("Christopher Lambert - Assignment 5-1\n");
+
+        SecureRandom randomNumbers = new SecureRandom();
+        int[] numbers = new int[25];
+
+            for(int count = 0; count < numbers.length; count++) {
+                numbers[count] = randomNumbers.nextInt(100);
+        }
+        Arrays.sort(numbers);
+
+        List<Integer> list = new LinkedList<>();
+
+        for (int number : numbers)
+            list.add(number);
+        System.out.println("Numbers as sorted list:");
+        printList(list);
+
+        System.out.println("\nSum of elements:");
+        float value = 0;
+       for (int i = 0; i < list.size(); i++)
+           value += list.get(i);
+            System.out.printf("%.2f%n%n", value);
+
+        float average = value / list.size();
+        System.out.println("Average of the elements:");
+        System.out.printf("%.2f%n", average);
+
+    }
+        private static void printList(List<Integer> list)
+        {
+            for (Integer number : list)
+                System.out.printf("%d ", number);
+            System.out.println("");
+        }
+}
